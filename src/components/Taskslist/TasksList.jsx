@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import Task from '../Task/Task';
 import tasks from './data';
-function TaskList() {
+
+function TasksList() {
   const [dataTasks, setDataTasks] = useState(tasks);
   const setDoneTask = (id) => {
     const newTasks = dataTasks.map((task) => {
@@ -21,6 +22,4 @@ function TaskList() {
   );
 }
 
-
-
-export default TaskList;
+export default TasksList;
