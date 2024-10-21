@@ -1,0 +1,5 @@
+@use '/src/common/styles/colors' as *;
+
+%hover{
+    background-color: mix(red, blue, $weight: 50)
+  }

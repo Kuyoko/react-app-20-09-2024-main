@@ -1,34 +1,27 @@
-$width: 25%;
-$min-width: 500px;
-$colorBG: black;
-$border-width: 1px;
+@use '/src/common/styles/colors' as *;
+@use '/src/common/styles/widths' as *;
+@use '/src/common/styles/mixins' as *;
+@use '/src/common/styles/inherits' as *;
+
 $indent: 10px;
 
 .task{
+  @include border-radius(8px);
   width: $width * 2;
   min-width: $min-width;
   display: flex;
   justify-content: space-between;
    align-items: center;
-  border: $border-width solid black;
+  border: $border-width solid $colorBG;
   padding: 0 $indent;
   margin: $indent - 2;
   background-color: mix(red, white, $weight: 50);
   &:hover{
-    // background-color: darken($color: $colorBG, $amount: 10%);
-    // background-color: lighten($color: $colorBG, $amount: 10%);
-    // background-color: transparentize($color: $colorBG, $amount: 0.8);
-    // background-color: invert($color: $colorBG);
-    // color: $colorBG;
-    background-color: mix(red, blue, $weight: 50)
+    @extend .hover;
   }
   p:first-child{
     margin-right: auto;
-    font:{
-      size: 1.2em;
-      family: serif;
-      weight: 600;
-    }
+    @include font(26px, serif, 600);
     text: {
       shadow: 2px 2px 2px white;
       decoration: {
@@ -38,9 +31,11 @@ $indent: 10px;
     }
   }
   button{
+    @include border-radius(4px);
+    @include font(20px, Arial, 900);
     margin-left: $indent;
     &:hover{
-      background-color: $colorBG;
+      @extend .hover;
     }
   }
 }
